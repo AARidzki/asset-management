@@ -36,12 +36,15 @@ Route::get('/categories', [\App\Http\Controllers\API\CategoryController::class, 
 
 //locations
 Route::apiResource('/locations', App\Http\Controllers\API\LocationController::class);
+Route::get('/locations', [\App\Http\Controllers\API\LocationController::class, 'searchLocation']);
 
 //assets
 Route::apiResource('/assets', App\Http\Controllers\API\AssetController::class);
+Route::get('/assets', [\App\Http\Controllers\API\AssetController::class, 'searchAsset']);
 
 //demands
 Route::apiResource('/demands', App\Http\Controllers\API\DemandController::class);
+Route::put('/demands/checklist/{entry_item}', [\App\Http\Controllers\API\DemandController::class, 'checkList']);
 
 //entry_items
 Route::apiResource('/entry_items', App\Http\Controllers\API\Entry_ItemController::class);

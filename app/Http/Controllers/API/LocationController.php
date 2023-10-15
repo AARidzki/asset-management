@@ -156,7 +156,7 @@ class LocationController extends Controller
     public function searchLocation(Request $request)
     {
         // menangkap data pencarian
-		$search = $request->search;
+		$search = $request->name;
  
         // mengambil data dari table pegawai sesuai pencarian data
         $locations = DB::table('locations')

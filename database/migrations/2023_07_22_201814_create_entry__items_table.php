@@ -25,6 +25,7 @@ return new class extends Migration
             $table->integer('jumlah');
             $table->integer('nilai');
             $table->integer('total');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

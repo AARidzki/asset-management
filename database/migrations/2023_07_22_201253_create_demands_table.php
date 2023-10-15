@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('location_id');
             $table->string('jumlah');
             $table->date('tgl');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
