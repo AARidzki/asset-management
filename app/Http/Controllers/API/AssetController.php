@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Models\Asset;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AssetResource;
 use Illuminate\Support\Facades\Storage;
@@ -175,4 +176,23 @@ class AssetController extends Controller
         //return response
         return new AssetResource(true, 'Data Asset Berhasil Dihapus!', null);
     }
+
+    public function searchAsset(Request $request)
+    {
+        // menangkap data pencarian
+		$search = $request->name;
+ 
+        // mengambil data dari table pegawai sesuai pencarian data
+        $assets = DB::table('assets')
+        ->where('nama_aset','like',"%".$search."%")
+        ->paginate(5);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data Asset Berhasil dicari',
+            'data' => $assets
+        ], 200);
+    }
+
+    
 }

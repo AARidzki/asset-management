@@ -160,7 +160,7 @@ class CategoryController extends Controller
     public function searchCategory(Request $request)
     {
         // menangkap data pencarian
-		$search = $request->search;
+		$search = $request->name;
  
         // mengambil data dari table pegawai sesuai pencarian data
         $categories = DB::table('categories')
